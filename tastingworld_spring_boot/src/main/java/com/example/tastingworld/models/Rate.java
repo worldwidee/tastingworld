@@ -10,7 +10,7 @@ import java.io.Serializable;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Rate implements Serializable{
+public class Rate extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -96,18 +96,20 @@ public class Food {
         return category;
     }
 
-    public List<Map<String, String>> getComments(){
-        List<Map<String, String>> list= new ArrayList<>();
+    public List<Map> getComments(){
+        List<Map> list= new ArrayList<>();
         for(Comment comment:comments){
-            Map<String,String> map=new HashMap<String,String>();
+            Map map=new HashMap();
             User user=comment.viewUser();
-            map.put("id",String.valueOf(id));
-            map.put("user_id",String.valueOf(comment.getUserId()));
-            map.put("food_id",String.valueOf(comment.getFoodId()));
+            map.put("id",id);
+            map.put("user_id",comment.getUserId());
+            map.put("food_id",comment.getFoodId());
             map.put("comment",comment.getComment());
             map.put("username",user.getUsername());
             map.put("name",user.getName());
             map.put("surname",user.getSurname());
+            map.put("createdAt",comment.getCreatedAt());
+            map.put("updatedAt",comment.getUpdatedAt());
             list.add(map);
         }
         return list;

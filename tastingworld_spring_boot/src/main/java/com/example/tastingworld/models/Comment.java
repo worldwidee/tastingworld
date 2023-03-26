@@ -10,7 +10,7 @@ import java.io.Serializable;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Comment implements Serializable{
+public class Comment extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

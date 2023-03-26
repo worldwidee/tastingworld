@@ -40,11 +40,11 @@ public class UserController {
     public User create(@RequestBody User user){
         return service.save(user);
     }
-    @PutMapping(value="/user={id}",consumes = {"application/json; charset=UTF-8"})
+    @PutMapping(value="/users/{id}",consumes = {"application/json; charset=UTF-8"})
     public User update(@PathVariable String id,@RequestBody User user){
         return service.save(new User(Integer.parseInt(id),user.getUsername(),user.viewPassword(),user.getName(),user.getSurname()));
     }
-    @DeleteMapping("user/{id}")
+    @DeleteMapping("users/{id}")
     public boolean delete(@PathVariable String id){
         service.delete(Integer.parseInt(id));
         return true;
