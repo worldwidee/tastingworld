@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:rixa/rixa.dart';
 import 'package:tastingworld/models/food.dart';
 import 'package:tastingworld/models/user.dart';
-import 'package:tastingworld/models/vote.dart';
+import 'package:tastingworld/models/comment.dart';
 import 'package:tastingworld/services/food_service.dart';
-import 'package:tastingworld/services/vote_service.dart';
+import 'package:tastingworld/services/comment_service.dart';
 import 'package:tastingworld/states/categories.dart';
+import 'package:tastingworld/states/foods.dart';
 
 import 'app_design/error_screen.dart';
 import 'app_design/page_control_panel.dart';
@@ -22,6 +23,7 @@ late PageManager pageManager;
 
 void main() async {
   var categories = Get.put(Categories());
+  var foods = Get.put(Foods());
   if (categories.items.isEmpty) {
     categories.setItems(await FoodService.getCategories());
   }

@@ -2,7 +2,6 @@ package com.example.tastingworld.controllers;
 import java.util.*;
 
 import com.example.tastingworld.models.Comment;
-import com.example.tastingworld.models.Food;
 import com.example.tastingworld.models.User;
 import com.example.tastingworld.services.CommentService;
 import com.example.tastingworld.services.UserService;

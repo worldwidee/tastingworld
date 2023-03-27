@@ -1,13 +1,7 @@
 package com.example.tastingworld.models;
-import com.example.tastingworld.services.FoodService;
-import com.example.tastingworld.services.UserService;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 

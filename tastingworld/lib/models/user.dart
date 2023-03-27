@@ -23,7 +23,6 @@ class User {
 
   Map<String, String> toMap() {
     return {
-      'id': _id.toString(),
       'username': _username,
       'password': _password,
       'name': _name,

@@ -6,7 +6,10 @@ import 'package:rixa/rixa.dart';
 import 'package:rixa/state_widgets/rixa_builder.dart';
 import 'package:rixa/widgets/sized_button.dart';
 import 'package:tastingworld/main.dart';
+import 'package:tastingworld/services/food_service.dart';
 import 'package:tastingworld/states/categories.dart';
+
+import '../../states/foods.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,6 +19,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var controller = Get.find<Foods>();
+
+  @override
+  void initState() {
+    FoodService.listAll().then((value) {
+      controller.setItems(value);
+      if (mounted) {
+        setState(() {});
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return RixaBuilder(
@@ -49,7 +66,8 @@ class _HomeState extends State<Home> {
                         children: [
                           Text(
                             "Travel Global, Eat Local.",
-                            style: appFonts.L(color: Colors.white,fontFamily: 'Anton'),
+                            style: appFonts.L(
+                                color: Colors.white, fontFamily: 'Anton'),
                           ),
                           SizedBox(
                             height: 50,

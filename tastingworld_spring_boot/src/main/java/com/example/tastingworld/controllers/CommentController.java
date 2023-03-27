@@ -1,14 +1,10 @@
 package com.example.tastingworld.controllers;
-
 import com.example.tastingworld.models.Comment;
-import com.example.tastingworld.models.Food;
 import com.example.tastingworld.services.CommentService;
 import com.example.tastingworld.services.FoodService;
 import com.example.tastingworld.services.UserService;
 import org.springframework.beans.factory.annotation.*;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

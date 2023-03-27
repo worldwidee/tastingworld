@@ -43,13 +43,18 @@ class FoodService {
   }
 
   static Future<double> getRate(String id) async {
-    var body = json.decode((await get("/foods/rate=$id")).body) as double;
+    var body = json.decode((await get("/foods/$id/rate")).body) as double;
     return body;
   }
 
   static Future<int> getRatedUserCount(String id) async {
     var body =
-        json.decode((await get("/foods/ratedUserCount=$id")).body) as int;
+        json.decode((await get("/foods/$id/ratedUserCount")).body) as int;
+    return body;
+  }
+  static Future<int> getCommentCount(String id) async {
+    var body =
+        json.decode((await get("/foods/$id/commentCount")).body) as int;
     return body;
   }
 
@@ -63,13 +68,13 @@ class FoodService {
   static Future<Food> update(Food food) async {
     print(food.toJson());
     var body = Map<String, dynamic>.from(
-        json.decode((await put("/food=${food.id}", food.toJson())).body));
+        json.decode((await put("/foods/${food.id}", food.toJson())).body));
     print(body);
     return Food.fromMap(body);
   }
 
   static Future<bool> delete(String id) async {
-    var value = json.decode((await functions.delete("food/$id")).body) as bool;
+    var value = json.decode((await functions.delete("foods/$id")).body) as bool;
     return value;
   }
 }
